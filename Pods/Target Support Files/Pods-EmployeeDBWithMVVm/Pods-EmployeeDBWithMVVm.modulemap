@@ -1,0 +1,6 @@
+framework module Pods_EmployeeDBWithMVVm {
+  umbrella header "Pods-EmployeeDBWithMVVm-umbrella.h"
+
+  export *
+  module * { export * }
+}
