@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B8F3BBF27952A4700564823 /* AddEmployee+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8F3BBE27952A4700564823 /* AddEmployee+Ext.swift */; };
+		6B8F3BC127952B3700564823 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8F3BC027952B3700564823 /* UIView+Ext.swift */; };
 		6BA563C3278F174A0056812A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA563C2278F174A0056812A /* ListViewController.swift */; };
 		6BA563C7278F19600056812A /* GlobalUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA563C6278F19600056812A /* GlobalUtility.swift */; };
 		6BA563CA278F1B630056812A /* StoryBoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA563C9278F1B630056812A /* StoryBoardHelper.swift */; };
@@ -22,6 +24,8 @@
 		6BA63C9227857C7C00C95B4E /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA63C9027857C7B00C95B4E /* Employee+CoreDataClass.swift */; };
 		6BA63C9327857C7C00C95B4E /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA63C9127857C7C00C95B4E /* Employee+CoreDataProperties.swift */; };
 		6BA63C9627857CBB00C95B4E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA63C9527857CBB00C95B4E /* CoreData.framework */; };
+		6BAEC453279496E90072CA87 /* AddEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC452279496E90072CA87 /* AddEmployeeView.swift */; };
+		6BAEC455279496F50072CA87 /* AddEmployeeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEC454279496F50072CA87 /* AddEmployeeView.xib */; };
 		6BB45ABA278016E2002FA7E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB45AB9278016E2002FA7E3 /* AppDelegate.swift */; };
 		6BB45ABC278016E2002FA7E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB45ABB278016E2002FA7E3 /* SceneDelegate.swift */; };
 		6BB45ABE278016E2002FA7E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB45ABD278016E2002FA7E3 /* ViewController.swift */; };
@@ -63,6 +67,8 @@
 		0394A8E64C4889247E42F775 /* Pods_EmployeeDBWithMVVm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmployeeDBWithMVVm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC3A0EDBE2D03CED89F2D8F /* Pods-EmployeeDBWithMVVm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmployeeDBWithMVVm.debug.xcconfig"; path = "Target Support Files/Pods-EmployeeDBWithMVVm/Pods-EmployeeDBWithMVVm.debug.xcconfig"; sourceTree = "<group>"; };
 		396CB2E89B4BE6920AC6B72F /* Pods-EmployeeDBWithMVVm-EmployeeDBWithMVVmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmployeeDBWithMVVm-EmployeeDBWithMVVmUITests.release.xcconfig"; path = "Target Support Files/Pods-EmployeeDBWithMVVm-EmployeeDBWithMVVmUITests/Pods-EmployeeDBWithMVVm-EmployeeDBWithMVVmUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6B8F3BBE27952A4700564823 /* AddEmployee+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddEmployee+Ext.swift"; sourceTree = "<group>"; };
+		6B8F3BC027952B3700564823 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		6BA563C2278F174A0056812A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6BA563C6278F19600056812A /* GlobalUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUtility.swift; sourceTree = "<group>"; };
 		6BA563C9278F1B630056812A /* StoryBoardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardHelper.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 		6BA63C9027857C7B00C95B4E /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6BA63C9127857C7C00C95B4E /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6BA63C9527857CBB00C95B4E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6BAEC452279496E90072CA87 /* AddEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeView.swift; sourceTree = "<group>"; };
+		6BAEC454279496F50072CA87 /* AddEmployeeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEmployeeView.xib; sourceTree = "<group>"; };
 		6BB45AB6278016E2002FA7E3 /* EmployeeDBWithMVVm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDBWithMVVm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB45AB9278016E2002FA7E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB45ABB278016E2002FA7E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +172,8 @@
 				6BA563DF278FE5AC0056812A /* ViewController+Ext.swift */,
 				6BA563E1278FE64C0056812A /* UITextField+Ext.swift */,
 				6BA563E7278FE8F00056812A /* String+Ext.swift */,
+				6B8F3BBE27952A4700564823 /* AddEmployee+Ext.swift */,
+				6B8F3BC027952B3700564823 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +200,8 @@
 			children = (
 				6BF1887427859F51001E5995 /* CustomTableViewCell.swift */,
 				6BF1887527859F51001E5995 /* CustomTableViewCell.xib */,
+				6BAEC452279496E90072CA87 /* AddEmployeeView.swift */,
+				6BAEC454279496F50072CA87 /* AddEmployeeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BAEC455279496F50072CA87 /* AddEmployeeView.xib in Resources */,
 				6BB45AC9278016E6002FA7E3 /* LaunchScreen.storyboard in Resources */,
 				6BB45AC6278016E6002FA7E3 /* Assets.xcassets in Resources */,
 				6BF1887727859F51001E5995 /* CustomTableViewCell.xib in Resources */,
@@ -572,13 +585,16 @@
 				6BB45ABA278016E2002FA7E3 /* AppDelegate.swift in Sources */,
 				6BA563C7278F19600056812A /* GlobalUtility.swift in Sources */,
 				6BA563CA278F1B630056812A /* StoryBoardHelper.swift in Sources */,
+				6B8F3BBF27952A4700564823 /* AddEmployee+Ext.swift in Sources */,
 				6BB45ABC278016E2002FA7E3 /* SceneDelegate.swift in Sources */,
 				6BA563E0278FE5AC0056812A /* ViewController+Ext.swift in Sources */,
 				6BA563D0278F1EE00056812A /* AppConstant.swift in Sources */,
 				6BF1887027859690001E5995 /* DatabaseHelper.swift in Sources */,
 				6BA563C3278F174A0056812A /* ListViewController.swift in Sources */,
 				6BA563E8278FE8F00056812A /* String+Ext.swift in Sources */,
+				6B8F3BC127952B3700564823 /* UIView+Ext.swift in Sources */,
 				6BA563E2278FE64C0056812A /* UITextField+Ext.swift in Sources */,
+				6BAEC453279496E90072CA87 /* AddEmployeeView.swift in Sources */,
 				6BA563CD278F1E6E0056812A /* UiViewController+Ext.swift in Sources */,
 				6BA563E4278FE6870056812A /* Validator.swift in Sources */,
 				6BA563E6278FE76A0056812A /* AlertMessage.swift in Sources */,

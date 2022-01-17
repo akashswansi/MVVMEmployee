@@ -69,7 +69,7 @@ class PhoneValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
         guard value.count > 0 else {throw ValidationError(AlertMessage.requireMobile, errorType.phone)}
         //guard value.count < 15 else {throw ValidationError(AlertMessage.invalidMobile)}
-        guard (value.count > 0 && value.count == 14)  else {throw ValidationError(AlertMessage.invalidMobile, errorType.phone)}
+        guard (value.count > 0 && value.count <= 14)  else {throw ValidationError(AlertMessage.invalidMobile, errorType.phone)}
         return value
     }
 }

@@ -19,8 +19,6 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     fileprivate let viewModel = ViewControllerViewModel()
-    
-    private var employee = [Employee]()
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.separatorStyle = .none
@@ -30,53 +28,33 @@ class ListViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = viewModel
-        tableView.delegate = viewModel
+        tableView.dataSource = self
+        tableView.delegate = self
+        initViewModel()
         let bundle = Bundle(for: type(of: self))
         self.tableView.register(UINib(nibName: "CustomTableViewCell", bundle: bundle), forCellReuseIdentifier: "CustomTableViewCell")
-        employee = employeeDataProvider.fetchResultController.fetchedObjects ?? []
-        self.viewModel.refreshWith(data: employee, {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        })
       //
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.deleteRow(userInfo:)), name: Notification.Name("DeleteRow"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(notification:)), name: Notification.Name("UpdateRow"), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("DeleteRow"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("UpdateRow"), object: nil)
     }
     
-    @objc func deleteRow(userInfo: NSNotification) {
-        if let indexPath = userInfo.userInfo?["indexPath"] as? IndexPath {
-        employee = DatabaseHelper.sharedInstance.deleteData(indexPath.row)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    @objc func updateRow(notification:NSNotification) {
-        if let model = notification.userInfo?["databaseModel"]  as? [Int:DataBaseModel]{
-            for (key,value) in model {
-                self.delegate?.data(object: value, index: key)
-                self.navigationController?.popViewController(animated: true)
-                return
-            }
-        }
-    }
     
     class func instance() -> ListViewController? {
         return StoryBoard.Main.board.instantiateViewController(withIdentifier: AppClass.ListVC.rawValue) as? ListViewController
+    }
+    
+    func initViewModel() {
+        viewModel.reloadTableView = {
+            DispatchQueue.main.async { self.tableView.reloadData() }
+        }
+        viewModel.setCellViewModel(employeeDataProvider.fetchResultController.fetchedObjects ?? [])
     }
     /*
     // MARK: - Navigation
@@ -90,6 +68,42 @@ class ListViewController: UIViewController {
 
 }
 
+extension ListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfCells
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        if let tmp = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
+            tmp.configureCell(viewModel.getCellViewModel(at: indexPath))
+            cell = tmp
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        switch editingStyle {
+        case .delete:
+            viewModel.setCellViewModel(DatabaseHelper.sharedInstance.deleteData(viewModel.getCellViewModel(at: indexPath)))
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            print("case is not handled")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dict = DataBaseModel(firstName: viewModel.getCellViewModel(at: indexPath).firstName ?? "", lastName: viewModel.getCellViewModel(at: indexPath).lastName ?? "", emailID: viewModel.getCellViewModel(at: indexPath).emailID ?? "", phoneNumber: viewModel.getCellViewModel(at: indexPath).phoneNumber ?? "", address: viewModel.getCellViewModel(at: indexPath).address, aboutYou: viewModel.getCellViewModel(at: indexPath).aboutYou)
+        delegate?.data(object: dict, index: indexPath.row)
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
 extension ListViewController : NSFetchedResultsControllerDelegate, UISearchBarDelegate
 {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -100,19 +114,10 @@ extension ListViewController : NSFetchedResultsControllerDelegate, UISearchBarDe
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
-            employee = DatabaseHelper.sharedInstance.fetchSearchedData(searchStr: searchText)
-            self.viewModel.refreshWith(data: employee, {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            })
+            viewModel.setCellViewModel(DatabaseHelper.sharedInstance.fetchSearchedData(searchStr: searchText))
         } else {
-            employee = employeeDataProvider.fetchResultController.fetchedObjects ?? []
-            self.viewModel.refreshWith(data: employee, {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            })
+            viewModel.setCellViewModel(employeeDataProvider.fetchResultController.fetchedObjects ?? [])
+            
         }
     }
 }

@@ -45,19 +45,17 @@ class DatabaseHelper {
         return employee
     }
     
-    func deleteData(_ index:Int) -> [Employee] {
-        var employee = getEmployeeData()
-        context?.delete(employee[index])
-        employee.remove(at: index)
+    func deleteData(_ data:Employee) -> [Employee] {
+        context?.delete(data)
         do {
             try context?.save()
         } catch {
             print("cannot able to delete data")
         }
-        return employee
+        return getEmployeeData()
     }
     
-    func editData(object:DataBaseModel, index:Int) {
+    func updateData(object:DataBaseModel, index:Int) {
         let employee = getEmployeeData()
         employee[index].firstName = object.firstName
         employee[index].lastName = object.lastName
