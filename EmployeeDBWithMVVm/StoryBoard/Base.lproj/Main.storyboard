@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LO0-gQ-DNj" customClass="AddEmployeeView" customModule="EmployeeDBWithMVVm" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LO0-gQ-DNj" customClass="AddEmployee" customModule="EmployeeDBWithMVVm" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -40,7 +40,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="addEmployeeView" destination="LO0-gQ-DNj" id="C7e-dk-a6u"/>
+                        <outlet property="addEmployeeView" destination="LO0-gQ-DNj" id="UsP-YT-xgu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

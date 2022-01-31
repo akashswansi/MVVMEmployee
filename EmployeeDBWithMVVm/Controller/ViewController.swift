@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents
 class ViewController: UIViewController {
 
-    @IBOutlet weak var addEmployeeView: AddEmployeeView!
+    @IBOutlet weak var addEmployeeView: AddEmployee!
     @IBAction func showListBtnTapped(_ sender: Any) {
         if let vc = ListViewController.instance() {
             vc.delegate = addEmployeeView
