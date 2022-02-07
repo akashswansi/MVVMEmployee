@@ -55,14 +55,14 @@ class DatabaseHelper {
         return getEmployeeData()
     }
     
-    func updateData(object:DataBaseModel, index:Int) {
-        let employee = getEmployeeData()
-        employee[index].firstName = object.firstName
-        employee[index].lastName = object.lastName
-        employee[index].phoneNumber = object.phoneNumber
-        employee[index].emailID = object.emailID
-        employee[index].address = object.address
-        employee[index].aboutYou = object.aboutYou
+    func updateData(object:DataBaseModel, employee:Employee) {
+//        let employee = getEmployeeData()
+        employee.firstName = object.firstName
+        employee.lastName = object.lastName
+        employee.phoneNumber = object.phoneNumber
+        employee.emailID = object.emailID
+        employee.address = object.address
+        employee.aboutYou = object.aboutYou
         do {
             try context?.save()
         } catch {

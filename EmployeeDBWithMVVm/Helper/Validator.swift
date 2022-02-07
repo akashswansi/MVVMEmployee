@@ -26,7 +26,7 @@ enum errorType {
 }
 /// Protocol for validator
 protocol ValidatorConvertible {
-    func validated(_ value: String) throws -> String
+    func validated(_ value: String, _ type: ValidatorType?, _ isFromSave:Bool) throws -> String
 }
 
 /// Enum for Validator type
@@ -51,7 +51,7 @@ enum VaildatorFactory {
     static func validatorFor(type: ValidatorType) -> ValidatorConvertible {
         switch type {
         case .firstName: return FirstNameValidator()
-        case .lastName: return LastNameValidator()
+        case .lastName: return FirstNameValidator()
         case .email: return EmailValidator()
         case .phone: return PhoneValidator()
         }
@@ -66,10 +66,12 @@ class PhoneValidator: ValidatorConvertible {
     /// - Parameter value: Value of textfield
     /// - Returns: returns message
     /// - Throws: throws exception if any error
-    func validated(_ value: String) throws -> String {
+    func validated(_ value: String, _ type: ValidatorType?, _ isFromSave:Bool) throws -> String {
+        if isFromSave {
         guard value.count > 0 else {throw ValidationError(AlertMessage.requireMobile, errorType.phone)}
+        }
         //guard value.count < 15 else {throw ValidationError(AlertMessage.invalidMobile)}
-        guard (value.count > 0 && value.count <= 14)  else {throw ValidationError(AlertMessage.invalidMobile, errorType.phone)}
+        guard (value.count == 0 || value.count == 10)  else {throw ValidationError(AlertMessage.invalidMobile, errorType.phone)}
         return value
     }
 }
@@ -83,18 +85,30 @@ struct EmailValidator: ValidatorConvertible {
     /// - Parameter value: String Value
     /// - Returns: Returns message
     /// - Throws: Throws exception
-    func validated(_ value: String) throws -> String {
+    func validated(_ value: String, _ type: ValidatorType?, _ isFromSave:Bool) throws -> String {
+        if isFromSave {
         guard value.count > 0 else {throw ValidationError(AlertMessage.requireEmail, errorType.email)}
+        }
         //old   ^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$
-        
-        
-        do {
-            if try NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+        if value.count != 0 {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            
+            let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            if emailPred.evaluate(with: value) {
+                return value
+            } else {
                 throw ValidationError(AlertMessage.invalidEmail, errorType.email)
             }
-        } catch {
-            throw ValidationError(AlertMessage.invalidEmail, errorType.email)
         }
+//        if value.count != 0 {
+//            do {
+//                if try NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+//                    throw ValidationError(AlertMessage.invalidEmail, errorType.email)
+//                }
+//            } catch {
+//                throw ValidationError(AlertMessage.invalidEmail, errorType.email)
+//            }
+//        }
         return value
     }
 }
@@ -106,53 +120,78 @@ struct FirstNameValidator: ValidatorConvertible {
     /// - Parameter value: String Value
     /// - Returns: Returns message
     /// - Throws: Throws exception
-    func validated(_ value: String) throws -> String {
-        guard value.count > 0 else {throw ValidationError(AlertMessage.requirefirstName, errorType.firstName)}
+    func validated(_ value: String, _ type: ValidatorType?, _ isFromSave:Bool) throws -> String {
         
-        guard value.count >= 1 else {
-            throw ValidationError(AlertMessage.minValueFirstName, errorType.firstName)
-        }
-        guard value.count < 80 else {
-            throw ValidationError(AlertMessage.maxValueFirstName, errorType.firstName)
-        }
-        do {
-            let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ].*", options: [])
-            if regex.firstMatch(in: value, options: [], range: NSMakeRange(0, value.count)) != nil {
+        switch type {
+        case .firstName:
+            guard value.count > 0 else {throw ValidationError(AlertMessage.requirefirstName, errorType.firstName)}
+            
+            guard value.count >= 1 else {
+                throw ValidationError(AlertMessage.minValueFirstName, errorType.firstName)
+            }
+            guard value.count < 80 else {
+                throw ValidationError(AlertMessage.maxValueFirstName, errorType.firstName)
+            }
+            do {
+                let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ].*", options: [])
+                if regex.firstMatch(in: value, options: [], range: NSMakeRange(0, value.count)) != nil {
+                    throw ValidationError(AlertMessage.invalidFirstName, errorType.firstName)
+                }
+            } catch {
                 throw ValidationError(AlertMessage.invalidFirstName, errorType.firstName)
             }
-        } catch {
-            throw ValidationError(AlertMessage.invalidFirstName, errorType.firstName)
+            return value
+        case .lastName:
+            guard value.count > 0 else {throw ValidationError(AlertMessage.requirelastName, errorType.lastName)}
+          
+                  guard value.count >= 1 else {
+                      throw ValidationError(AlertMessage.minValueLastName, errorType.lastName)
+                  }
+                  guard value.count < 80 else {
+                      throw ValidationError(AlertMessage.maxValueLastName, errorType.lastName)
+                  }
+          
+                  do {
+                      let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ].*", options: [])
+                      if regex.firstMatch(in: value, options: [], range: NSMakeRange(0, value.count)) != nil {
+                          throw ValidationError(AlertMessage.invalidLastName, errorType.lastName)
+                      }
+                  } catch {
+                      throw ValidationError(AlertMessage.invalidLastName, errorType.lastName)
+                  }
+                  return value
+        default:
+            return ""
         }
-        return value
     }
 }
 
 /// Last name Validator
-struct LastNameValidator: ValidatorConvertible {
-    /// Validate Last name
-    ///
-    /// - Parameter value: String Value
-    /// - Returns: Returns message
-    /// - Throws: Throws exception
-    func validated(_ value: String) throws -> String {
-        guard value.count > 0 else {throw ValidationError(AlertMessage.requirelastName, errorType.lastName)}
-        
-        guard value.count >= 1 else {
-            throw ValidationError(AlertMessage.minValueLastName, errorType.lastName)
-        }
-        guard value.count < 80 else {
-            throw ValidationError(AlertMessage.maxValueLastName, errorType.lastName)
-        }
-        
-        do {
-            let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ].*", options: [])
-            if regex.firstMatch(in: value, options: [], range: NSMakeRange(0, value.count)) != nil {
-                throw ValidationError(AlertMessage.invalidLastName, errorType.lastName)
-            }
-        } catch {
-            throw ValidationError(AlertMessage.invalidLastName, errorType.lastName)
-        }
-        return value
-    }
-}
+//struct LastNameValidator: ValidatorConvertible {
+//    /// Validate Last name
+//    ///
+//    /// - Parameter value: String Value
+//    /// - Returns: Returns message
+//    /// - Throws: Throws exception
+//    func validated(_ value: String) throws -> String {
+//        guard value.count > 0 else {throw ValidationError(AlertMessage.requirelastName, errorType.lastName)}
+//
+//        guard value.count >= 1 else {
+//            throw ValidationError(AlertMessage.minValueLastName, errorType.lastName)
+//        }
+//        guard value.count < 80 else {
+//            throw ValidationError(AlertMessage.maxValueLastName, errorType.lastName)
+//        }
+//
+//        do {
+//            let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ].*", options: [])
+//            if regex.firstMatch(in: value, options: [], range: NSMakeRange(0, value.count)) != nil {
+//                throw ValidationError(AlertMessage.invalidLastName, errorType.lastName)
+//            }
+//        } catch {
+//            throw ValidationError(AlertMessage.invalidLastName, errorType.lastName)
+//        }
+//        return value
+//    }
+//}
 

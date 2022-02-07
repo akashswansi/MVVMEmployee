@@ -18,11 +18,11 @@ extension UITextField {
     ///   - becomeFirstResponder: Whether textfield should become first responder
     /// - Returns: Returns Message
     /// - Throws: Throes exception if any error
-    func validatedText(validationType: ValidatorType, visibility: Bool = true, optional: Bool = false, becomeFirstResponder: Bool = true) throws -> String {
+    func validatedText(validationType: ValidatorType, visibility: Bool = true, optional: Bool = false, becomeFirstResponder: Bool = true,_ type:ValidatorType?, _ isFromSave:Bool) throws -> String {
         if (visibility == true && optional == false) || (visibility == true && optional == true  && self.text != "") {
             let validator = VaildatorFactory.validatorFor(type: validationType)
            
-            return try validator.validated(self.text!.trim())
+            return try validator.validated(self.text!.trim(), type, isFromSave)
         } else {
             return ""
         }

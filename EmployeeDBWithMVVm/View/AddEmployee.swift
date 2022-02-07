@@ -9,8 +9,8 @@ import UIKit
 
 class AddEmployee: UIView {
     var isEdit:Bool = false
-    var index = Int()
     var dict: DataBaseModel!
+    let viewModel = AddEmployeeViewModel()
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var firstNameTextField: DesignableTextField!
     
@@ -169,5 +169,6 @@ class AddEmployee: UIView {
         lastNameTextField.text = ""
         addressTextField.text = ""
         aboutMeTextField.text = ""
+        isEdit = false
     }
 }

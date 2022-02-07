@@ -18,8 +18,8 @@ struct AlertMessage {
     static let requirelastName = NSLocalizedString("Please enter last name", comment: "")
     static let minValueFirstName = NSLocalizedString("First Name must contain more than 1 character", comment: "")
     static let maxValueFirstName = NSLocalizedString("First Name shoudn't contain more than 80 characters", comment: "")
-    static let invalidFirstName = NSLocalizedString("Please enter a valid first name. Numbers and special characters are not allowed.", comment: "")
+    static let invalidFirstName = NSLocalizedString("Please enter a valid first name.", comment: "")
     static let minValueLastName = NSLocalizedString("Last Name must contain more than 1 character", comment: "")
     static let maxValueLastName = NSLocalizedString("Last Name shoudn't contain more than 80 characters", comment: "")
-    static let invalidLastName = NSLocalizedString("Please enter a valid last name. Numbers and special characters are not allowed.", comment: "")
+    static let invalidLastName = NSLocalizedString("Please enter a valid last name.", comment: "")
 }

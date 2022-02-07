@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 extension AddEmployee : DataPass {
-    
+        
     func showEmailError(_ message:String) {
         emailIDErrorLabel.isHidden = false
+        emailIDErrorLabel.text = message
         emailIDTextField.borderColor = .red
         emailIDTextField.leadingImage = UIImage(named: "error")
         emailIDTextField.padding = 10
@@ -21,6 +22,7 @@ extension AddEmployee : DataPass {
 
     func showPhoneError(_ message:String) {
         phoneNumberErrorLabel.isHidden = false
+        phoneNumberErrorLabel.text = message
         phoneNumberTextField.borderColor = .red
         phoneNumberTextField.leadingImage = UIImage(named: "error")
         phoneNumberTextField.padding = 10
@@ -31,7 +33,7 @@ extension AddEmployee : DataPass {
             self.endEditing(true)
         }
 
-    func data(object: DataBaseModel, index:Int) {
+    func data(object: DataBaseModel, employee:Employee) {
         aboutMeTextField.becomeFirstResponder()
         phoneNumberTextField.text = object.phoneNumber
         emailIDTextField.text = object.emailID
@@ -40,7 +42,7 @@ extension AddEmployee : DataPass {
         addressTextField.text = object.address
         aboutMeTextField.text = object.aboutYou
         isEdit = true
-        self.index = index
+        viewModel.setCellViewModel(employee)
     }
     
      func registerNotifications() {
@@ -59,15 +61,15 @@ extension AddEmployee : DataPass {
         func validateFields() {
             do {
                 _ = try firstNameTextField.validatedText(validationType: ValidatorType.firstName,
-                                                        visibility: true)
+                                                         visibility: true, .firstName, true)
                 _ = try lastNameTextField.validatedText(validationType: ValidatorType.lastName,
-                                                        visibility: true)
+                                                        visibility: true, .lastName, true)
                 _ = try emailIDTextField.validatedText(validationType: ValidatorType.email,
-                                                        visibility: true)
+                                                       visibility: true, .email, true)
                 _ = try phoneNumberTextField.validatedText(validationType: ValidatorType.phone,
-                                                        visibility: true)
+                                                           visibility: true, .phone, true)
                 dict = DataBaseModel(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", emailID: emailIDTextField.text ?? "", phoneNumber: phoneNumberTextField.text ?? "", address: addressTextField.text ?? "", aboutYou: aboutMeTextField.text ?? "")
-                isEdit ? DatabaseHelper.sharedInstance.updateData(object: dict, index: index) :  DatabaseHelper.sharedInstance.save(object: dict)
+                isEdit ? DatabaseHelper.sharedInstance.updateData(object: dict, employee: viewModel.getCellViewModel()) :  DatabaseHelper.sharedInstance.save(object: dict)
                 self.showSimpleAlert(message: AppConstant.success) {
                     self.clearTextFields()
                 }
@@ -76,12 +78,14 @@ extension AddEmployee : DataPass {
                     switch messageError.errorType {
                     case .firstName:
                         firstNameError.isHidden = false
+                        firstNameError.text = messageError.message
                         firstNameTextField.borderColor = .red
                         firstNameTextField.leadingImage = UIImage(named: "error")
                         firstNameTextField.padding = 10
                         firstNameTextField.textColor = .red
                     case .lastName:
                         lastNameErrorLabel.isHidden = false
+                        lastNameErrorLabel.text = messageError.message
                         lastNameTextField.borderColor = .red
                         lastNameTextField.leadingImage = UIImage(named: "error")
                         lastNameTextField.padding = 10
@@ -136,7 +140,7 @@ extension AddEmployee : DataPass {
                 performFloating(with: emailIDLabel, requiredLabel: nil, field: emailIDTextField, topAnchor: emailIDLabelTop, fieldTopAnchor: emailIDTextFieldTop, endEditing: true, color: .lightGray, fieldTop: 21.0)
                 do {
                     _ = try emailIDTextField.validatedText(validationType: ValidatorType.email,
-                                                           visibility: true)
+                                                           visibility: true, .email, false)
                 } catch (let error) {
                     if let messageError = error as? ValidationError {
                         showEmailError(messageError.message)
@@ -146,7 +150,7 @@ extension AddEmployee : DataPass {
                 performFloating(with: phoneNumberLabel, requiredLabel: nil, field: phoneNumberTextField, topAnchor: phoneNumberLabelTop, fieldTopAnchor: phoneNumberTextFieldTop, endEditing: true, color: .lightGray, fieldTop: 21.0)
                 do {
                     _ = try phoneNumberTextField.validatedText(validationType: ValidatorType.phone,
-                                                               visibility: true)
+                                                               visibility: true, .phone, false)
                 } catch (let error) {
                     if let messageError = error as? ValidationError {
                         showPhoneError(messageError.message)

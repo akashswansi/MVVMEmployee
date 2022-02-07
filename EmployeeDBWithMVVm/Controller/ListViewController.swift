@@ -99,7 +99,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dict = DataBaseModel(firstName: viewModel.getCellViewModel(at: indexPath).firstName ?? "", lastName: viewModel.getCellViewModel(at: indexPath).lastName ?? "", emailID: viewModel.getCellViewModel(at: indexPath).emailID ?? "", phoneNumber: viewModel.getCellViewModel(at: indexPath).phoneNumber ?? "", address: viewModel.getCellViewModel(at: indexPath).address, aboutYou: viewModel.getCellViewModel(at: indexPath).aboutYou)
-        delegate?.data(object: dict, index: indexPath.row)
+        delegate?.data(object: dict, employee: viewModel.getCellViewModel(at: indexPath))
         self.navigationController?.popViewController(animated: true)
     }
 }

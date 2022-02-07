@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DataPass: class {
-    func data(object:DataBaseModel, index:Int)
+    func data(object:DataBaseModel, employee:Employee)
 }

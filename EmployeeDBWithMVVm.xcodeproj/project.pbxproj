@@ -14,7 +14,6 @@
 		6B4734CD27A77F1800F1D401 /* AddEmployee.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4734CC27A77F1800F1D401 /* AddEmployee.xib */; };
 		6B4734CF27A7863F00F1D401 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4734CE27A7863F00F1D401 /* CustomLabel.swift */; };
 		6B4734D127A78D2800F1D401 /* AddEmployeeDetails+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4734D027A78D2800F1D401 /* AddEmployeeDetails+EXT.swift */; };
-		6B8F3BBF27952A4700564823 /* AddEmployee+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8F3BBE27952A4700564823 /* AddEmployee+Ext.swift */; };
 		6B8F3BC127952B3700564823 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8F3BC027952B3700564823 /* UIView+Ext.swift */; };
 		6BA563C3278F174A0056812A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA563C2278F174A0056812A /* ListViewController.swift */; };
 		6BA563C7278F19600056812A /* GlobalUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA563C6278F19600056812A /* GlobalUtility.swift */; };
@@ -32,8 +31,6 @@
 		6BA63C9327857C7C00C95B4E /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA63C9127857C7C00C95B4E /* Employee+CoreDataProperties.swift */; };
 		6BA63C9627857CBB00C95B4E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA63C9527857CBB00C95B4E /* CoreData.framework */; };
 		6BAB52B22797BC2300046579 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAB52B12797BC2200046579 /* CustomUITextField.swift */; };
-		6BAEC453279496E90072CA87 /* AddEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC452279496E90072CA87 /* AddEmployeeView.swift */; };
-		6BAEC455279496F50072CA87 /* AddEmployeeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEC454279496F50072CA87 /* AddEmployeeView.xib */; };
 		6BB45ABA278016E2002FA7E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB45AB9278016E2002FA7E3 /* AppDelegate.swift */; };
 		6BB45ABC278016E2002FA7E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB45ABB278016E2002FA7E3 /* SceneDelegate.swift */; };
 		6BB45ABE278016E2002FA7E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB45ABD278016E2002FA7E3 /* ViewController.swift */; };
@@ -49,6 +46,7 @@
 		6BF18873278597B1001E5995 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF18872278597B1001E5995 /* ViewControllerViewModel.swift */; };
 		6BF1887627859F51001E5995 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1887427859F51001E5995 /* CustomTableViewCell.swift */; };
 		6BF1887727859F51001E5995 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BF1887527859F51001E5995 /* CustomTableViewCell.xib */; };
+		6BF4DBF327B0C936009080B1 /* AddEmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4DBF227B0C936009080B1 /* AddEmployeeViewModel.swift */; };
 		837B62569A99FF41FE394EB5 /* Pods_EmployeeDBWithMVVmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5CC794E3FA08C50B0EF0DD /* Pods_EmployeeDBWithMVVmTests.framework */; };
 		F1D31924055FEE2E939B2765 /* Pods_EmployeeDBWithMVVm_EmployeeDBWithMVVmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B86B7540EF91005D52DF6E /* Pods_EmployeeDBWithMVVm_EmployeeDBWithMVVmUITests.framework */; };
 		FA97DEB4C8B336A319F230B9 /* Pods_EmployeeDBWithMVVm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0394A8E64C4889247E42F775 /* Pods_EmployeeDBWithMVVm.framework */; };
@@ -82,7 +80,6 @@
 		6B4734CC27A77F1800F1D401 /* AddEmployee.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEmployee.xib; sourceTree = "<group>"; };
 		6B4734CE27A7863F00F1D401 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		6B4734D027A78D2800F1D401 /* AddEmployeeDetails+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddEmployeeDetails+EXT.swift"; sourceTree = "<group>"; };
-		6B8F3BBE27952A4700564823 /* AddEmployee+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddEmployee+Ext.swift"; sourceTree = "<group>"; };
 		6B8F3BC027952B3700564823 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		6BA563C2278F174A0056812A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6BA563C6278F19600056812A /* GlobalUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUtility.swift; sourceTree = "<group>"; };
@@ -100,8 +97,6 @@
 		6BA63C9127857C7C00C95B4E /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6BA63C9527857CBB00C95B4E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6BAB52B12797BC2200046579 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
-		6BAEC452279496E90072CA87 /* AddEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeView.swift; sourceTree = "<group>"; };
-		6BAEC454279496F50072CA87 /* AddEmployeeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEmployeeView.xib; sourceTree = "<group>"; };
 		6BB45AB6278016E2002FA7E3 /* EmployeeDBWithMVVm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDBWithMVVm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB45AB9278016E2002FA7E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB45ABB278016E2002FA7E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +116,7 @@
 		6BF18872278597B1001E5995 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		6BF1887427859F51001E5995 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6BF1887527859F51001E5995 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		6BF4DBF227B0C936009080B1 /* AddEmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeViewModel.swift; sourceTree = "<group>"; };
 		704AF578CF5CB4762C4FF662 /* Pods-EmployeeDBWithMVVmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmployeeDBWithMVVmTests.debug.xcconfig"; path = "Target Support Files/Pods-EmployeeDBWithMVVmTests/Pods-EmployeeDBWithMVVmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EA75B2B7C96AE48B54FD7AC /* Pods-EmployeeDBWithMVVm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmployeeDBWithMVVm.release.xcconfig"; path = "Target Support Files/Pods-EmployeeDBWithMVVm/Pods-EmployeeDBWithMVVm.release.xcconfig"; sourceTree = "<group>"; };
 		C4B86B7540EF91005D52DF6E /* Pods_EmployeeDBWithMVVm_EmployeeDBWithMVVmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmployeeDBWithMVVm_EmployeeDBWithMVVmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +184,6 @@
 				6BA563DF278FE5AC0056812A /* ViewController+Ext.swift */,
 				6BA563E1278FE64C0056812A /* UITextField+Ext.swift */,
 				6BA563E7278FE8F00056812A /* String+Ext.swift */,
-				6B8F3BBE27952A4700564823 /* AddEmployee+Ext.swift */,
 				6B8F3BC027952B3700564823 /* UIView+Ext.swift */,
 				6B4734D027A78D2800F1D401 /* AddEmployeeDetails+EXT.swift */,
 			);
@@ -217,8 +212,6 @@
 			children = (
 				6BF1887427859F51001E5995 /* CustomTableViewCell.swift */,
 				6BF1887527859F51001E5995 /* CustomTableViewCell.xib */,
-				6BAEC452279496E90072CA87 /* AddEmployeeView.swift */,
-				6BAEC454279496F50072CA87 /* AddEmployeeView.xib */,
 				6B4734CA27A77F0800F1D401 /* AddEmployee.swift */,
 				6B4734CC27A77F1800F1D401 /* AddEmployee.xib */,
 			);
@@ -346,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				6BF18872278597B1001E5995 /* ViewControllerViewModel.swift */,
+				6BF4DBF227B0C936009080B1 /* AddEmployeeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -472,7 +466,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BAEC455279496F50072CA87 /* AddEmployeeView.xib in Resources */,
 				6BB45AC9278016E6002FA7E3 /* LaunchScreen.storyboard in Resources */,
 				6B4734C727A77D2600F1D401 /* CustomTextField.xib in Resources */,
 				6BB45AC6278016E6002FA7E3 /* Assets.xcassets in Resources */,
@@ -612,9 +605,9 @@
 				6BB45ABA278016E2002FA7E3 /* AppDelegate.swift in Sources */,
 				6BA563C7278F19600056812A /* GlobalUtility.swift in Sources */,
 				6BA563CA278F1B630056812A /* StoryBoardHelper.swift in Sources */,
-				6B8F3BBF27952A4700564823 /* AddEmployee+Ext.swift in Sources */,
 				6BAB52B22797BC2300046579 /* CustomUITextField.swift in Sources */,
 				6BB45ABC278016E2002FA7E3 /* SceneDelegate.swift in Sources */,
+				6BF4DBF327B0C936009080B1 /* AddEmployeeViewModel.swift in Sources */,
 				6B4734C427A77D0700F1D401 /* CustomTextField.swift in Sources */,
 				6B4734D127A78D2800F1D401 /* AddEmployeeDetails+EXT.swift in Sources */,
 				6BA563E0278FE5AC0056812A /* ViewController+Ext.swift in Sources */,
@@ -624,7 +617,6 @@
 				6BA563E8278FE8F00056812A /* String+Ext.swift in Sources */,
 				6B8F3BC127952B3700564823 /* UIView+Ext.swift in Sources */,
 				6BA563E2278FE64C0056812A /* UITextField+Ext.swift in Sources */,
-				6BAEC453279496E90072CA87 /* AddEmployeeView.swift in Sources */,
 				6BA563CD278F1E6E0056812A /* UiViewController+Ext.swift in Sources */,
 				6BA563E4278FE6870056812A /* Validator.swift in Sources */,
 				6BA563E6278FE76A0056812A /* AlertMessage.swift in Sources */,
